@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.YuYang.Mapper.TestLoginMapper">
+    <resultMap id="BaseResultMap" type="com.web.YuYang.Bean.Login_Test" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="LOGIN_USERNAME" property="LOGIN_USERNAME" jdbcType="VARCHAR" />
+        <result column="LOGIN_PASSWORD" property="LOGIN_PASSWORD" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+            id,
+            LOGIN_USERNAME,
+            LOGIN_PASSWORD
+        FROM Login_Test
+    </select>
+</mapper>
