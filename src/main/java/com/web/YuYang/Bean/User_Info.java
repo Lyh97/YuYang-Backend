@@ -9,6 +9,8 @@ public class User_Info {
     private String user_age;
     private String user_logo;
     private String user_profile;
+    private String user_create_time;
+    private String user_update_time;
 
     public int getUser_id() {
         return user_id;
@@ -72,5 +74,21 @@ public class User_Info {
 
     public void setUser_profile(String user_profile) {
         this.user_profile = user_profile;
+    }
+
+    public String getUser_create_time() {
+        return user_create_time;
+    }
+
+    public void setUser_create_time(String user_create_time) {
+        this.user_create_time = user_create_time;
+    }
+
+    public String getUser_update_time() {
+        return user_update_time;
+    }
+
+    public void setUser_update_time(String user_update_time) {
+        this.user_update_time = user_update_time;
     }
 }
