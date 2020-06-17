@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserInfoMapper {
     public List<User_Info> selectAllUserInfo();
 
-    public User_Info selectUserByUserItem(String userName, String userPassword);
+    public User_Info selectUserByUserItem(User_Info user);
 
     public void addUserInfo(User_Info user);
 

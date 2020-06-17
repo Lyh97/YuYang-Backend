@@ -10,6 +10,7 @@
         <result column="user_age" property="user_age" jdbcType="VARCHAR" />
         <result column="user_logo" property="user_logo" jdbcType="VARCHAR" />
         <result column="user_profile" property="user_profile" jdbcType="VARCHAR" />
+        <result column="user_phone" property="user_phone" jdbcType="VARCHAR" />
         <result column="user_create_time" property="user_create_time" jdbcType="VARCHAR" />
         <result column="user_update_time" property="user_update_time" jdbcType="VARCHAR" />
     </resultMap>
@@ -19,11 +20,39 @@
         FROM User_Info
     </select>
 
+    <select id="selectUserByUserItem" parameterType="com.web.YuYang.Bean.User_Info" resultMap="userResultMap">
+        SELECT *
+        FROM User_Info
+        WHERE
+        user_name = #{user_name} OR user_phone = #{user_phone}
+    </select>
+
     <insert id="addUserInfo" parameterType="com.web.YuYang.Bean.User_Info">
         INSERT
         INTO User_Info
-        (user_name, user_password, user_address, user_email, user_age, user_logo, user_profile, user_create_time, user_update_time)
+        (user_name, user_password, user_address, user_email, user_age, user_logo, user_profile, user_create_time, user_update_time, user_phone)
         VALUES
-        (#{user_name}, #{user_password}, #{user_address}, #{user_email}, #{user_age}, #{user_logo}, #{user_profile}, #{user_create_time}, #{user_update_time})
+        (#{user_name}, #{user_password}, #{user_address}, #{user_email}, #{user_age}, #{user_logo}, #{user_profile}, #{user_create_time}, #{user_update_time}, #{user_phone})
     </insert>
+
+    <update id="updateUserInfo" parameterType="com.web.YuYang.Bean.User_Info">
+        UPDATE
+            User_Info
+        SET
+            user_name = #{user_name},
+            user_password = #{user_password},
+            user_address = #{user_address},
+            user_email = #{user_email},
+            user_age = #{user_age},
+            user_logo = #{user_logo},
+            user_profile = #{user_profile},
+            user_phone = #{user_phone},
+            user_update_time = #{user_update_time}
+        WHERE
+            user_id = #{user_id}
+    </update>
+
+    <delete id="deleteUserInfo" parameterType="java.lang.Integer">
+        DELETE FROM User_Info WHERE user_id = #{user_id}
+    </delete>
 </mapper>
